@@ -1,0 +1,19 @@
+public int mySqrt(int x){
+        long ar[]=new long[46342];
+        int s=0;
+        for(int i=0;i<=46341;i++){
+            ar[i]=(long)i*i;
+            System.out.println(ar[i]);
+        }
+        for( int i=0;i<=46341;i++){
+            if(ar[i]==x){
+                s=i;
+                break;
+            }
+            else if(ar[i]>x){
+                s=i-1;
+                break;
+            }
+        }
+        return s;
+    }
