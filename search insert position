@@ -1,3 +1,6 @@
+
+///the given array is sorted in ascending order//
+
 public int searchInsert(int[] nums, int target){
 
         int length=nums.length;
