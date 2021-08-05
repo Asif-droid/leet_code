@@ -1,0 +1,27 @@
+
+/*Input: digits = [1,2,3]
+Output: [1,2,4]
+Explanation: The array represents the integer 123.
+*/
+public int[] plusOne(int[] digits) {
+
+        int l=digits.length;
+        int carry=1;
+        for(int i=(l-1);i>=0;i--){
+            int x=digits[i];
+            x+=carry;
+            digits[i]=x%10;
+            carry=x/10;
+        }
+        if(carry==0){
+            return digits;
+        }
+        else {
+            int [] xtended=new int[l+1];
+            xtended[0]=carry;
+            for(int i=l-1;i>=0;i--){
+                xtended[i+1]=digits[i];
+            }
+            return xtended;
+        }
+    }
