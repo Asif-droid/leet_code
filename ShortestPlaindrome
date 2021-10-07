@@ -1,0 +1,75 @@
+package leet_code;
+
+public class shortestPlindrome {
+    public static void main(String[] args) {
+        System.out.println(Palindrome("aacecaaa"));
+        System.out.println();
+    }
+
+    public static boolean isPalindrome(String s, int l,int h){
+        int len=h-l+1;
+
+        for(int i=0;i<len;i++){
+            if(l+i>h-i){
+                break;
+            }
+            if(s.charAt(l+i)!=s.charAt(h-i)){
+                return false;
+            }
+        }return true;
+    }
+    public static String Palindrome(String s){
+        if(isPalindrome(s,0,s.length()-1)){
+            return s;
+        }
+
+        int len=s.length();
+        if(len==0){
+            return "";
+        }
+        int max=0;
+        int strInd=0;
+        int lstInd=0;
+        int i=strInd;
+        for (int j = i; j < len; j++) {
+            if (isPalindrome(s, i, j)) {
+                //System.out.println();
+                int x = j - i + 1;
+                if (max < x) {
+                    max = x;
+                    lstInd = j;
+                }
+
+            }
+        }
+        String res="";
+        for(int k=strInd;k<=lstInd;k++){
+            res+=s.charAt(k);
+        }
+
+        for(int k=lstInd+1;k<len;k++){
+            char add=s.charAt(k);
+            res=add+res+add;
+        }
+        return res;
+
+
+        /*else{
+            System.out.println("here");
+            char x=s.charAt(0);
+            boolean flag=true;
+            for(int i=1;i<l;i++){
+                if(s.charAt(i)==x&& flag){
+                    continue;
+                }
+                flag=false;
+                char add=s.charAt(i);
+                s2=add+s2;
+            }
+            return s2;
+        }*/
+
+
+
+    }
+}
